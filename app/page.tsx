@@ -62,7 +62,13 @@ interface ApiResponse {
 }
 
 interface UploadResult {
-  [key: string]: unknown;
+  code: number;
+  data: productUploadedData; // or more specifically typed if you know the structure
+  message?: string;
+}
+
+interface productUploadedData{
+  product_id:string;
 }
 
 const server:string= 'http://localhost:8080/';
