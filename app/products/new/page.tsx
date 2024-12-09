@@ -25,14 +25,14 @@ interface Subcategory {
 }
 
 interface Category {
-  id: number;
-  name: string;
+  category_id: number;
+  category_name: string;
   subcategories: Subcategory[];
 }
 
 interface Brand {
-  id: number;
-  name: string;
+  brand_id: number;
+  brand_name: string;
 }
 
 interface ProductFormData {
@@ -335,7 +335,7 @@ export default function NewProductPage() {
                         type="number"
                         onChange={(e) => {
                           const newImages = [...formData.images];
-                         newImages[index].preference= e.target.value;
+                         newImages[index].preference= Number(e.target.value);
                           setFormData(prev => ({ ...prev, images: newImages }));
                         }}
                         placeholder="Enter preference"
@@ -353,7 +353,7 @@ export default function NewProductPage() {
                       </Button>
                     </div>
                   ))}
-                  <Button
+                  {/* <Button
                     variant="outline"
                     onClick={() => {
                       setFormData(prev => ({
@@ -363,9 +363,9 @@ export default function NewProductPage() {
                     }}
                   >
                     Add Image Link
-                  </Button>
+                  </Button> */}
                 </div>
-                <div className="grid grid-cols-3 gap-2 mt-4">
+                {/* <div className="grid grid-cols-3 gap-2 mt-4">
                   {formData.images.map((image, index) => (
                     <div key={index} className="relative aspect-square rounded-lg bg-muted overflow-hidden">
                       {image && (
@@ -377,7 +377,7 @@ export default function NewProductPage() {
                       )}
                     </div>
                   ))}
-                </div>
+                </div> */}
               </div>
 
               <div className="space-y-2">
