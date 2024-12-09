@@ -62,9 +62,9 @@ interface ApiResponse {
 }
 
 interface UploadResult {
-  code: number;
-  data: productUploadedData; // or more specifically typed if you know the structure
-  message?: string;
+  totalRows: number;
+  preview: productUploadedData; // or more specifically typed if you know the structure
+  //message?: string;
 }
 
 interface productUploadedData{
