@@ -169,6 +169,25 @@ export default function ProductDashboard() {
     );
   };
 
+  // const handleDeleteProduct = async (productId: number) => {
+  //   try {
+  //     const response = await fetch(`${server}products/delete/${productId}`, {
+  //       method: 'DELETE',
+  //       headers: {
+  //         'x-access-token': 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDk4YTAxYjYtZWY5MS00ODhlLThiOWItODM4ODYxMDZmYWI5Iiwicm9sZSI6IkFETUlOIiwicmVnaW9uX2lkIjoxLCJpYXQiOjE3MzE0MTcxNjcsImV4cCI6MTczNDAwOTE2N30.Rt7YXP6vJLajZRy2v-8Cgd7r9NbxEDlyBl98HZ7c9wE07vDWnZqDAN08jcNE1O07tC6i0jKrOnGG2v_5UwOiWw'
+  //       }
+  //     });
+  //     if (response.ok) {
+  //       fetchProducts(); // Refresh the product list after successful deletion
+  //     } else {
+  //       throw new Error('Failed to delete product');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error deleting product:', error);
+  //     alert('An error occurred while deleting the product.');
+  //   }
+  // };
+
   return (
     <div className="flex h-screen bg-background">
       {/* Sidebar */}

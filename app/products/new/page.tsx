@@ -58,7 +58,7 @@ export default function NewProductPage() {
   const router = useRouter()
   const [categories, setCategories] = useState<Category[]>([])
   const [brands, setBrands] = useState<Brand[]>([])
- // const [subcategories, setSubcategories] = useState<Subcategory[]>([])
+  const [subcategories, setSubcategories] = useState<Subcategory[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState<ProductFormData>({
     product_name: '',
@@ -104,6 +104,7 @@ export default function NewProductPage() {
       setBrands(brandsData.data)
       setSubcategories(subcategoriesData.data)
 
+      console.log(subcategories);
       // Group subcategories by category
       const categoriesWithSubcategories = categoriesData.data.map((category: Category) => ({
         ...category,
