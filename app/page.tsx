@@ -61,11 +61,13 @@ interface ApiResponse {
   data: Product[];
 }
 
+const server:string= 'http://localhost:8080/';
+
 export default function ProductDashboard() {
   const router = useRouter()
   const [file, setFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState(false);
-  const [uploadResult, setUploadResult] = useState<any>(null);
+  const [uploadResult, setUploadResult] = useState<unknown>(null);
   const [showResultDialog, setShowResultDialog] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -80,7 +82,7 @@ export default function ProductDashboard() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('http://localhost:8080/products/get-all', {
+      const response = await fetch(`${server}products/get-all`, {
         headers: {
           'x-access-token': 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDk4YTAxYjYtZWY5MS00ODhlLThiOWItODM4ODYxMDZmYWI5Iiwicm9sZSI6IkFETUlOIiwicmVnaW9uX2lkIjoxLCJpYXQiOjE3MzE0MTcxNjcsImV4cCI6MTczNDAwOTE2N30.Rt7YXP6vJLajZRy2v-8Cgd7r9NbxEDlyBl98HZ7c9wE07vDWnZqDAN08jcNE1O07tC6i0jKrOnGG2v_5UwOiWw'
         }
@@ -115,7 +117,7 @@ export default function ProductDashboard() {
     formData.append('productFile', file);
 
     try {
-      const response = await fetch('http://localhost:8080/products/uploadProducts', {
+      const response = await fetch(`${server}products/uploadProducts`, {
         method: 'POST',
         body: formData,
         headers:{

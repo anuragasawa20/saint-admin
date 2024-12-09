@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { UploadCloud, X, Plus, ArrowLeft } from 'lucide-react'
+import {  X, Plus, ArrowLeft } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -58,7 +58,7 @@ export default function NewProductPage() {
   const router = useRouter()
   const [categories, setCategories] = useState<Category[]>([])
   const [brands, setBrands] = useState<Brand[]>([])
-  const [subcategories, setSubcategories] = useState<Subcategory[]>([])
+ // const [subcategories, setSubcategories] = useState<Subcategory[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState<ProductFormData>({
     product_name: '',
@@ -91,9 +91,9 @@ export default function NewProductPage() {
     setIsLoading(true)
     try {
       const [categoriesResponse, brandsResponse, subcategoriesResponse] = await Promise.all([
-        fetch('http://localhost:8080/categories/get'),
-        fetch('http://localhost:8080/brands/get'),
-        fetch('http://localhost:8080/subcategories/get')
+        fetch( `${process.env.server}categories/get`),
+        fetch( `${process.env.server}brands/get`),
+       fetch( `${process.env.server}subcategories/get`)
       ])
 
       const categoriesData = await categoriesResponse.json()
@@ -130,15 +130,15 @@ export default function NewProductPage() {
     }
   }
 
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Handle image upload logic here
-  }
+//   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     // Handle image upload logic here
+//   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
     try {
-      const response = await fetch('http://localhost:8080/products/create', {
+      const response = await fetch(`${process.env.server}products/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -609,6 +609,7 @@ export default function NewProductPage() {
                     }}
                   />
                 </div>
+                <Plus/>
               </div>
 
               <div className="space-y-2">
