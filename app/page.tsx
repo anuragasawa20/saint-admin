@@ -62,7 +62,7 @@ interface ApiResponse {
 }
 
 interface UploadResult {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const server:string= 'http://localhost:8080/';
