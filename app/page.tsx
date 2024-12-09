@@ -61,13 +61,17 @@ interface ApiResponse {
   data: Product[];
 }
 
+interface UploadResult {
+  [key: string]: any;
+}
+
 const server:string= 'http://localhost:8080/';
 
 export default function ProductDashboard() {
   const router = useRouter()
   const [file, setFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState(false);
-  const [uploadResult, setUploadResult] = useState<unknown>(null);
+  const [uploadResult, setUploadResult] = useState<UploadResult|null>(null);
   const [showResultDialog, setShowResultDialog] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
