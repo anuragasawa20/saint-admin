@@ -91,9 +91,9 @@ export default function NewProductPage() {
     setIsLoading(true)
     try {
       const [categoriesResponse, brandsResponse, subcategoriesResponse] = await Promise.all([
-        fetch( `${process.env.server}categories/get`),
-        fetch( `${process.env.server}brands/get`),
-       fetch( `${process.env.server}subcategories/get`)
+        fetch( `${process.env.SERVER_URL}categories/get`),
+        fetch( `${process.env.SERVER_URL}brands/get`),
+       fetch( `${process.env.SERVER_URL}subcategories/get`)
       ])
 
       const categoriesData = await categoriesResponse.json()
@@ -139,7 +139,7 @@ export default function NewProductPage() {
     e.preventDefault()
     setIsLoading(true)
     try {
-      const response = await fetch(`${process.env.server}products/create`, {
+      const response = await fetch(`${process.env.SERVER_URL}products/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

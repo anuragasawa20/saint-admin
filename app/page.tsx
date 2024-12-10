@@ -71,7 +71,8 @@ interface productUploadedData{
   product_id:string;
 }
 
-const server:string= 'http://localhost:8080/';
+const server:string= 'http://13.126.237.254:8080/'
+// 'http://localhost:8080/';
 
 export default function ProductDashboard() {
   const router = useRouter()
@@ -94,7 +95,7 @@ export default function ProductDashboard() {
     try {
       const response = await fetch(`${server}products/get-all`, {
         headers: {
-          'x-access-token': 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDk4YTAxYjYtZWY5MS00ODhlLThiOWItODM4ODYxMDZmYWI5Iiwicm9sZSI6IkFETUlOIiwicmVnaW9uX2lkIjoxLCJpYXQiOjE3MzE0MTcxNjcsImV4cCI6MTczNDAwOTE2N30.Rt7YXP6vJLajZRy2v-8Cgd7r9NbxEDlyBl98HZ7c9wE07vDWnZqDAN08jcNE1O07tC6i0jKrOnGG2v_5UwOiWw'
+          'x-access-token': 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZjE5NWU5NWQtZjQwZi00OGYyLTlkZDItNjRmNGE5NmYyMGQxIiwicm9sZSI6ImN1c3RvbWVyIiwicmVnaW9uX2lkIjozLCJpYXQiOjE3MzE5MzgwMDMsImV4cCI6MTczNDUzMDAwM30.XG0TBJL1bVPt0yGdW8xwKYpJw2ynehzY-RKMdN1q3RSAA9JZ8qLRdExK8G0wcOnD_2-Jg8S-7hj_YNq8ihtp3w'
         }
       });
       if (!response.ok) {

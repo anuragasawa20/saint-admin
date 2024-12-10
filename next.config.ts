@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  env: {
+    SERVER_URL: process.env.server,
+  },
 };
 
 export default nextConfig;
