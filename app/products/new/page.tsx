@@ -138,12 +138,13 @@ export default function NewProductPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
+    const adminToken:string=process.env.adminToken||'';
     try {
       const response = await fetch(`${process.env.SERVER_URL}products/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-access-token': 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDk4YTAxYjYtZWY5MS00ODhlLThiOWItODM4ODYxMDZmYWI5Iiwicm9sZSI6IkFETUlOIiwicmVnaW9uX2lkIjoxLCJpYXQiOjE3MzE0MTcxNjcsImV4cCI6MTczNDAwOTE2N30.Rt7YXP6vJLajZRy2v-8Cgd7r9NbxEDlyBl98HZ7c9wE07vDWnZqDAN08jcNE1O07tC6i0jKrOnGG2v_5UwOiWw'
+          'x-access-token': adminToken
         },
         body: JSON.stringify(formData)
       })

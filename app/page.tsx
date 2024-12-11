@@ -71,7 +71,7 @@ interface productUploadedData{
   product_id:string;
 }
 
-const server:string= 'http://13.126.237.254:8080/'
+const server:string= 'http://13.126.237.254:8080/';
 // 'http://localhost:8080/';
 
 export default function ProductDashboard() {
@@ -92,10 +92,11 @@ export default function ProductDashboard() {
   const fetchProducts = async () => {
     setIsLoading(true);
     setError(null);
+    const adminToken:string= process.env.adminToken||'';
     try {
       const response = await fetch(`${server}products/get-all`, {
         headers: {
-          'x-access-token': 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZjE5NWU5NWQtZjQwZi00OGYyLTlkZDItNjRmNGE5NmYyMGQxIiwicm9sZSI6ImN1c3RvbWVyIiwicmVnaW9uX2lkIjozLCJpYXQiOjE3MzE5MzgwMDMsImV4cCI6MTczNDUzMDAwM30.XG0TBJL1bVPt0yGdW8xwKYpJw2ynehzY-RKMdN1q3RSAA9JZ8qLRdExK8G0wcOnD_2-Jg8S-7hj_YNq8ihtp3w'
+          'x-access-token':adminToken
         }
       });
       if (!response.ok) {
